@@ -6,7 +6,7 @@ function BookShelfChanger({ book, getAllBooks }) {
   const selectShelf = (event) => {
     const value = event.target.value;
     update(book, value).then(getAllBooks);
-    console.log("updated");
+    // console.log("updated");
   };
 
   return (

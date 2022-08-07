@@ -6,7 +6,19 @@ function Book({ book, getAllBooks }) {
   return (
     <div className="book">
       <div className="book-top">
-        <BookCover imgLink={book.imageLinks.smallThumbnail} />
+        {book.imageLinks ? (
+          <BookCover imgLink={book.imageLinks.smallThumbnail} />
+        ) : (
+          <div
+            className="book-cover"
+            style={{
+              width: 128,
+              height: 193,
+              backgroundImage: `url(https://www.adspeed.com/placeholder-128x193.gif)`,
+            }}
+          ></div>
+        )}
+
         <BookShelfChanger book={book} getAllBooks={getAllBooks} />
       </div>
       <div className="book-title">{book.title}</div>
