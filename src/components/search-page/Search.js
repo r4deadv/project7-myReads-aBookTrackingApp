@@ -43,9 +43,7 @@ function Search({ books, getAllBooks }) {
           )}
           {foundBooks &&
             foundBooks.length > 0 &&
-            foundBooks.map((book) => (
-              <Book key={book.id} book={book} getAllBooks={getAllBooks} />
-            ))}
+            foundBooks.map((book) => <Book key={book.id} book={book} />)}
         </ol>
       </div>
     </div>
