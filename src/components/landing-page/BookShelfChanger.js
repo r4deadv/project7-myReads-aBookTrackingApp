@@ -2,6 +2,7 @@ import React from "react";
 import { update } from "../../BooksAPI";
 
 function BookShelfChanger({ book, getAllBooks }) {
+  // function to move book to selected shelf
   const selectShelf = (event) => {
     const value = event.target.value;
     update(book, value).then(getAllBooks);

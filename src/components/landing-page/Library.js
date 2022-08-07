@@ -4,16 +4,18 @@ import AddButton from "./AddButton";
 import { useState, useEffect } from "react";
 
 function Library({ books, getAllBooks }) {
+  // function to store books in state by shelves
   const [currentlyReading, setCurrentlyReading] = useState([]);
   const [wantToRead, setWantToRead] = useState([]);
   const [read, setRead] = useState([]);
 
   useEffect(() => {
-    console.log("shelf updateing");
+    // console.log("shelf updating");
     setCurrentlyReading([]);
     setWantToRead([]);
     setRead([]);
 
+    // remove all books with with shelf title 'none'
     books
       .filter((book) => book.shelf !== "none")
       .forEach((book) => {
@@ -47,6 +49,7 @@ function Library({ books, getAllBooks }) {
           getAllBooks={getAllBooks}
         />
         <Shelf title="Read" books={read} getAllBooks={getAllBooks} />
+        {/* link to search page */}
       </div>
       <AddButton />
     </div>

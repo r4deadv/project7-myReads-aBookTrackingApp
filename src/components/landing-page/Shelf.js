@@ -2,6 +2,7 @@ import React from "react";
 import Book from "./Book";
 
 function Shelf({ books, title, getAllBooks }) {
+  // store books in shelves
   return (
     <div className="bookshelf">
       <h2 className="bookshelf-title">{title}</h2>
