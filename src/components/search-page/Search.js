@@ -33,7 +33,7 @@ function Search({ books, getAllBooks }) {
 
   return (
     <div className="search-books">
-      <SearchBar books={books} setQuery={setQuery} getAllBooks={getAllBooks} />
+      <SearchBar books={books} setQuery={setQuery} />
       <div className="search-books-results">
         <ol className="books-grid">
           {foundBooks.length === 0 && query !== "" ? (
@@ -43,7 +43,9 @@ function Search({ books, getAllBooks }) {
           )}
           {foundBooks &&
             foundBooks.length > 0 &&
-            foundBooks.map((book) => <Book key={book.id} book={book} />)}
+            foundBooks.map((book) => (
+              <Book key={book.id} book={book} getAllBooks={getAllBooks} />
+            ))}
         </ol>
       </div>
     </div>
