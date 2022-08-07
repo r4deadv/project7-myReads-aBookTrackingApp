@@ -12,7 +12,7 @@ function BookShelfChanger({ book, getAllBooks }) {
   return (
     <div className="book-shelf-changer">
       <select defaultValue={book.shelf} onChange={selectShelf}>
-        <option value="none" disabled>
+        <option value="move" disabled>
           Move to...
         </option>
         <option value="currentlyReading">Currently Reading</option>

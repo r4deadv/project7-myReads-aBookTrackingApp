@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function SearchBar({ setQuery }) {
+function SearchBar({ setQuery, getAllBooks }) {
   const handleInput = (event) => {
     const value = event.target.value;
     setQuery(value);

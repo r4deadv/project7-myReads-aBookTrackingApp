@@ -33,7 +33,7 @@ function Search({ books, getAllBooks }) {
 
   return (
     <div className="search-books">
-      <SearchBar books={books} setQuery={setQuery} />
+      <SearchBar books={books} setQuery={setQuery} getAllBooks={getAllBooks} />
       <div className="search-books-results">
         <ol className="books-grid">
           {foundBooks.length === 0 && query !== "" ? (
