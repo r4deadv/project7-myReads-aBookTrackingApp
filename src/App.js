@@ -4,18 +4,18 @@ import { search } from "./BooksAPI";
 import Library from "./components/landing-page/Library";
 import { getAll } from "./BooksAPI";
 import Search from "./components/search-page/Search";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // console.log(search("reac"));
 // let resault = search("Reac");
 // resault.then((data) => console.log(data));
 
 function App() {
-  const [showSearchPage, setShowSearchpage] = useState(false);
   const [books, setBooks] = useState([]);
 
   const getAllBooks = async () => {
     const response = await getAll();
-    await setBooks(response);
+    setBooks(response);
   };
 
   useEffect(() => {
@@ -23,18 +23,17 @@ function App() {
     console.log("books", books);
   }, [books.length]);
 
-  const handleOnClick = () => {
-    setShowSearchpage(!showSearchPage);
-  };
-
   return (
-    <div className="app">
-      {showSearchPage ? (
-        <Search books={books} handleOnClick={handleOnClick} />
-      ) : (
-        <Library books={books} handleOnClick={handleOnClick} />
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={<Library books={books} getAllBooks={getAllBooks} />}
+        />
+        <Route path="/search" element={<Search books={books} />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,14 +1,16 @@
 import React from "react";
+import { update } from "../../BooksAPI";
 
-function BookShelfChanger({ book }) {
-  function changeBookShelf() {}
+function BookShelfChanger({ book, getAllBooks }) {
+  const selectShelf = (event) => {
+    const value = event.target.value;
+    update(book, value).then(getAllBooks);
+    console.log("updated");
+  };
 
   return (
     <div className="book-shelf-changer">
-      <select
-        defaultValue={book.shelf}
-        onChange={(event) => changeBookShelf(book, event.target.value)}
-      >
+      <select defaultValue={book.shelf} onChange={selectShelf}>
         <option value="none" disabled>
           Move to...
         </option>
